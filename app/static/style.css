@@ -1,0 +1,126 @@
+* {
+    border: 0px;
+    outline: 0px;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    font-family: inter;
+}
+div.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1d1d1d;
+    /* background: #f1f1f1; */
+    padding: 16px;
+}
+div.data-table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 880px;
+    min-width: 800px;
+    min-height: 100vh;
+    margin: 48px 0px 48px 0px;
+    gap: 8px;
+}
+h1.title {
+    margin-bottom: 32px;
+    width: 100%;
+    font-size: 56px;
+    font-weight: bold;
+    color: #ffffff;
+    /* color: #0f0f0f; */
+}
+div.push, div.pull, div.merge {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    width: 100%;
+    gap: 12px;
+    line-height: 1.8;
+    animation: append .3s linear;
+}
+div.push {
+    background: #daffee;
+}
+div.pull {
+    background: #fff9dd;
+}
+div.merge {
+    background: #efdeff;
+}
+span.author, span.from-repo, span.to-repo {
+    background: #000000;
+    display: inline-block;
+    padding: 0px 4px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #e2e2e2;
+}
+div.action-push, div.action-pull, div.action-merge, div.none {
+    flex-shrink: 0;
+    width: 60px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    color: #efefef;
+    text-transform: uppercase;
+}
+div.action-push {
+    /* background: #67ff54; */
+    background: #4ba551;
+}
+div.action-pull {
+    background: #e15d00;
+}
+div.action-merge {
+    background: #960bff;
+}
+div.time {
+    font-size: 12px;
+}
+div.empty {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    font-size: 24px;
+    border-radius: 6px;
+    width: 100%;
+    line-height: 1.8;
+    gap: 12px;
+    color: #ffffff;
+    background: #646464;
+}
+div.none {
+    background: #1d1d1d;
+}
+div + div.empty {
+    display: none;
+}
+
+
+@keyframes append {
+	from {
+		transform: scale(0.8);
+		opacity: 0.5;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;	
+	}
+}
+@media screen and (max-width:880px) {
+    div.data-table {min-width: 100px;}
+}
+@font-face {
+    font-family: inter;
+    src: url('./fonts/inter.ttf');
+}
