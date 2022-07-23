@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhook UI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="data-table">
+            <h1 class="title">Webhook Receiver</h1>
+        {% for hook in data %}
+            {% if hook['action'] == 'push' %}
+            <div class="push">
+                <div class="action-push">PUSH</div>
+                <div class="content">
+                    <span class="author">{{hook['author']}}</span>
+                    pushed to 
+                    <span class="to-repo">{{hook['to_branch']}}</span>
+                    <div class="time">{{hook['timestamp']}} UTC</div>
+                </div>
+            </div>
+            {% else %}
+            <div class="{{hook['action']}}">
+                <div class="action-{{hook['action']}}">{{hook['action']}}</div>
+                <div class="content"><span class="author">harshtasks</span>
+                {% if hook['action'] == 'pull' %}
+                    submitted a pull request from
+                {% else %}
+                    merged branch
+                {% endif %} 
+                <span class="from-repo">{{hook['from_branch']}}</span> to <span class="to-repo">{{hook['to_branch']}}</span>
+                <div class="time">{{hook['timestamp']}} UTC</div></div>
+            </div>
+            {% endif %}
+        {% endfor %}
+            <div class="empty">
+                <div class="none">NONE</div>
+                <div class="content">No data</div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
