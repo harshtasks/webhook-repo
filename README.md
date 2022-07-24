@@ -2,7 +2,6 @@
 
 *******************
 
-https://www.youtube.com/watch?v=fJG0dv_h2YQ
 ### Watch the demo video here
 ```bash
 https://www.youtube.com/watch?v=fJG0dv_h2YQ
